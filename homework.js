@@ -33,7 +33,7 @@ if(num < cost1){
 }
 
 //3.
-
+ 
 const number = 1000;
 const number1 = 1900;
 const cost = 2000;
