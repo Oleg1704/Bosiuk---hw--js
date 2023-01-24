@@ -22,9 +22,9 @@ if(num > 1000 && num < 1900){
 
 const price = 700;
 
-if(price !== 1000 || price !== 1900){
+if(!(price >= 1000 && price <= 1900)){
     console.log('Ціна товару не знаходиться між 1000 та 1900 включно');
-}
+  }
 
 const price1 = '';
 
@@ -54,11 +54,11 @@ const a = 3;
 const b = 1;
 const c = 2;
 
-if ( (a < b && c > b || b > c && b <a) ){
+if ( (a < b && c > b) || (b > c && b <a) ){
     console.log(b);
-} else if( (b < a && c > a || a >c && b > a) ){
+} else if( (b < a && c > a) || (a >c && b > a) ){
     console.log(a);
-} else if( (c > a && b > c || a >c && c > b) ){
+} else if( (c > a && b > c) || (a >c && c > b) ){
     console.log(c)
 }else {
     console.log('some result')
@@ -85,7 +85,7 @@ switch(numb){
         console.log('Friday');
         break;
     case 6:
-        consolelog('Saturday');
+        console.log('Saturday');
         break;
     case 7:
         console.log('Sunday');
@@ -97,17 +97,17 @@ const n = '+';
 const x = 5, y = 2
 
 switch(n){
-    case '+': z = x + y;
-    console.log(z);
+    case '+': 
+    console.log(x + y);
         break;
-    case '-': z = x - y;
-    console.log(z);
+    case '-': 
+    console.log(x - y);
         break;
-    case '*': z = x * y;
-    console.log(z);
+    case '*': 
+    console.log(x * y);
         break;
-    case '/': z = x / y;
-    console.log(z);
+    case '/': 
+    console.log(x / y);
         break;
 }
 
@@ -124,6 +124,10 @@ function getCorrectEnding (size, prefix = '') {
     const lastDigits = size.toString().slice(-2).split('');
 
     const lastDigit = lastDigits[lastDigits.length - 1];
+
+    if (size <= 1) {
+        return prefix + 'метра'
+    }
 
     if (lastDigits.length === 2 && lastDigits[0] === '1') {
         return prefix + 'метрів'
